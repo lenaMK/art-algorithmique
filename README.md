@@ -29,17 +29,19 @@ LenaMK Hiver 2024
 </video>
 
 ##  <a name='algo'></a>Algorithm: [Recursive Vermeer tiles](./tiling/)
-Quelques tentatives à jouer avec des algorithms
+Quelques tentatives à jouer avec des algorithmes
 
 
 ##  <a name='MONA'></a>Data: [Public artworks by women](./figures-historiques/)
 Plusieurs tests: 
 - [Titres (au hasard) d'œuvres réalisées par des femmes](./artistes-femmes-MONA/)
 - [Web of women](./web-of-women/)
-- [Figures historiques](./figures-historiques/)
+- [Figures historiques](./figures-historiques/) (projet final)
 
+Documentation à venir
 
 ##  <a name='expo'></a>[Vernissage d'art algorithmique](https://rethread.art/code/algorithmicart2024-vernissage/)
 
-Gertraud & the machines, avec William Diakité
+*Gertraud & the machines*, avec William Diakité
+
 (le projet présenté fonctionne uniquement en local et utilise comme source de données une boîte à musique. Le code est disponible en [ligne](https://github.com/lenaMK/art-algorithmique/tree/main/gertraud-and-the-machines))
