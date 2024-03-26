@@ -6,6 +6,7 @@ Travaux pour le [cours IFT6251 art algorithmique avec Benoît Beaudry](https://g
 * [Vermeer's tiles](#genuary)
 * [Recursive tiling experiment](#algo)
 * [Public artworks by women](#MONA)
+* [exposition d'art algorithmique](#expo)
 
 LenaMK Hiver 2024
 
@@ -23,7 +24,7 @@ LenaMK Hiver 2024
 
 
 <video width="960" height="1080" controls>
-  <source src="/img/algo.mp4" type="video/mp4">
+  <source src="./img/algo.mp4" type="video/mp4">
   Your browser does not support the video tag. Le tag vidéo n'est pas supporté pas le navigateur.
 </video>
 
@@ -37,3 +38,8 @@ Plusieurs tests:
 - [Web of women](./web-of-women/)
 - [Figures historiques](./figures-historiques/)
 
+
+##  <a name='expo'></a>[Vernissage d'art algorithmique](https://rethread.art/code/algorithmicart2024-vernissage/)
+
+Gertraud & the machines, avec William Diakité
+(le projet présenté fonctionne uniquement en local et utilise comme source de données une boîte à musique. Le code est disponible en [ligne](https://github.com/lenaMK/art-algorithmique/tree/main/gertraud-and-the-machines))
