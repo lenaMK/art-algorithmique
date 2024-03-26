@@ -11,9 +11,9 @@ var showEllipse = false
 var volTranslate = false
 var frequency = false
 var frequencyCircle = false
-var frequencyCircleLine = true
+var frequencyCircleLine = false
 
-var showCircleViz = false
+var showCircleViz = true
 
 //to use these, I would need to store the history on a file and get it (preload (would it lag?), make sure it's empty before starting a test) to be able to change the values without losing the history.
 
