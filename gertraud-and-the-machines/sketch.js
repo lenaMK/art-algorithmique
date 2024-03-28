@@ -8,13 +8,17 @@
 
 var showSpectrumPunchCards = false
 var showSpectrumLines = false
-var showPaperCrumbles = false
-var showMovingPaperCrumbles = true
+var showPaperCrumbles = true //alpha = 0
+var showMovingPaperCrumbles = false //alpha = 20
+var moveLineFocus = false
+var backgroundAlpha = 0
 
+var centralFocus = false
 
 var xoff = 0
 var yoff
 
+var focusX, focusY
 
 var mic, vol, spectrum, fft, bandW, sound
 var nbBands = 128
@@ -47,6 +51,9 @@ function setup() {
     incx = 0.2
     incy = 0.2
     incz = 0.001
+
+    focusX = pageMargin
+    focusY = pageMargin
 } 
 
 
@@ -198,15 +205,25 @@ function spectrumLines(){
     var selection = 4
     var margin = 10
 
+    if (moveLineFocus){
+        if (!centralFocus){
+            focusX = windowWidth/2
+            focusY = windowHeight/3
+            centralFocus = true
+        }
+        focusX += random (-12, 12)
+        focusY += random (-12, 12)
+    }
+
     for (var s = 1; s < nbBands / selection; s++){
         var dist = 3        
         var size = (windowWidth - pageMargin*2) / nbBands * selection
         
         var y = map(spectrum[s*selection/2 - 2], 0, 255, pageMargin, windowHeight - pageMargin)
 
-        stroke(0, 0, 100, 250)           
+        stroke(0, 0, 100, 120)        
 
-        line((s-1) * size + pageMargin + (size-margin*2) /2, windowHeight - y - pageMargin, pageMargin , pageMargin + s*dist)
+        line((s-1) * size + pageMargin + (size-margin*2) /2, windowHeight - y - pageMargin, focusX, focusY + s*dist)
 
 
         //circle((s-1) * size + pageMargin, windowHeight - y - pageMargin, size - margin*2)
@@ -242,6 +259,7 @@ function spectrumPunchCard(){
 
 
 function spectrumPaperCrumbles(){
+
     var selection = 4
     var margin = 10
     var pageMargin = 100
@@ -252,9 +270,9 @@ function spectrumPaperCrumbles(){
         var startY = random(pageMargin, windowHeight-pageMargin)
         var nbSides = random(3,9)
         
-        var opacity = map(spectrum[s-1], 0, 255, 0, 100)
+        var color = map(spectrum[s-1], 0, 255, 0, 100)
         
-        fill(0, 0, opacity, 250)
+        fill(color, 100, 80, 250)
 
         push()
             translate(startX, startY)
@@ -284,8 +302,8 @@ function buildShapes(){
         newShape.push(nbSides) 
 
         //init xy for the shape
-        var initX = random(pageMargin, windowWidth - pageMargin)
-        var initY = random(pageMargin, windowHeight - pageMargin)
+        var initX = random(0, windowWidth)
+        var initY = random(0, windowHeight)
         newShape.push(initX)
         newShape.push(initY)
         
@@ -335,9 +353,15 @@ function spectrumMovingPaperCrumbles(){
         pop()
 
         
-        shapes[s][1] += noise(xoff, yoff)
-        
-        shapes[s][2] += noise(yoff, xoff)
+        if (shapes[s][1] > windowWidth){
+            shapes[s][1] = 0
+        }else
+            shapes[s][1] += noise(xoff, yoff)
+
+        if (shapes[s][2] > windowHeight){
+                shapes[s][2] = 0
+        }else
+            shapes[s][2] += noise(yoff, xoff)
         
         if(spectrum[s-1] > 180){
             //shapes[s][1] = map(spectrum[s-1], 150, 255, shapes[s][1], pageMargin)
@@ -345,13 +369,17 @@ function spectrumMovingPaperCrumbles(){
             var removeX = random(5,20)
             var removeY = random(5,20)
 
-            if (shapes[s][1]-removeX < 0)
+            if (shapes[s][1]-removeX < 0){
                 shapes[s][1] = windowWidth
+                shapes[s][2] = random(0, windowHeight)
+            }
             else
                 shapes[s][1] -= removeX
 
-            if (shapes[s][2]-removeY < 0)
+            if (shapes[s][2]-removeY < 0){
                 shapes[s][2] = windowHeight
+                shapes[s][1] = random(0, windowWidth)
+            }
             else
                 shapes[s][2] -= removeX
 
@@ -364,7 +392,7 @@ function spectrumMovingPaperCrumbles(){
     xoff+= 0.1
 
 }
-
+/*
 function mousePressed(){
     if (isLooping()){
         noLoop();
@@ -376,12 +404,12 @@ function mousePressed(){
         console.log("mouse Pressed → play")
     }
         
-}
+}*/
 
 
 function draw() { 
      
-    background(0, 0, 0)
+    background(0, 0, 0, backgroundAlpha)
 
     /*vol = mic.getLevel()
     
