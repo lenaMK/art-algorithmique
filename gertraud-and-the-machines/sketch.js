@@ -26,9 +26,17 @@ var tableau0 = 60*30 //punch cards 30sec
 var tableau1 = tableau0 + 60*50 //touching
 var tableau2 = tableau1 + 60*45 //stomping
 var tableau3 = tableau2 + 60*50 //frôler
-var tableau4 = tableau3 + 5*45 //tapisser
-var tableau5 = tableau4 + 5*50 // étoiler
+var tableau4 = tableau3 + 60*45 //tapisser
+var tableau5 = tableau4 + 60*50 // étoiler
+/*
 
+var tableau0 = 60*3 //punch cards 30sec
+var tableau1 = tableau0 + 60*3 //touching
+var tableau2 = tableau1 + 60*3 //stomping
+var tableau3 = tableau2 + 60*3 //frôler
+var tableau4 = tableau3 + 60*3 //tapisser
+var tableau5 = tableau4 + 60*15 // étoiler
+*/
 var pageMargin = 100
 
 function setup() { 
@@ -208,37 +216,29 @@ function spectrumPaperCrumbles(){
 
         push()
             translate(startX, startY)
-
             beginShape()
-
                 vertex(0, 0)
-
                 for(var i = 0; i < nbSides; i++){
-                    if(frameCount < tableau5){
+                    if(frameCount < tableau4){
                         //tapisser 
-                        var color = map(spectrum[i], 0, 255, 0, 360)
-                        fill(color, 0, 80, 250)
+                        var color = map(spectrum[i], 0, 255, 0, 60)
+                        fill(color, 100, 100, 250)
+                        vertex(random(5,50),random(5,50) )
                     }else {
                         var color = map(spectrum[i], 0, 255, 0, 100)
-                        fill(200, 0, color, 250)
+                        fill(200, 100, color, 250)
+                        vertex(random(5,50),random(5,50) )
                     }
-
-                    vertex(random(5,50),random(5,50) )
                 }
-
             endShape()
         pop()
-        
     }
 }
 
 
-function draw() { 
-     
-    
+function draw() {   
 
     spectrum = fft.analyze()
-    
   
 
     if(frameCount < tableau0){ 
@@ -274,16 +274,18 @@ function draw() {
         spectrumMovingPaperCrumbles()  
     }
     else if (frameCount == tableau3){
-        background(0,0,0,0)
+        background(0,0,0)
     }
     else if (frameCount < tableau4){
         //étoiler
-        spectrumPaperCrumbles()
         background(0,0,0,0)
+        spectrumPaperCrumbles()
     }
     else if (frameCount == tableau4){
         background(0,0,0)
-    }else{
+    }else if (frameCount < tableau5){
+
+        background(0,0,0,0)
         spectrumPaperCrumbles()
     }
 
