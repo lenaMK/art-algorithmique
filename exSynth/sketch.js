@@ -30,7 +30,8 @@ function preload(){
 function setup(){
     colorMode(HSB, 360, 100, 100, 1);
     
-
+    textAlign(CENTER)
+    
     art = Object.values(art_import)
     artists = Object.values(artists_import)
     origines = Object.values(origines_import)
@@ -68,7 +69,7 @@ function draw() {
     translate(marginSides, marginTop)
 
     for (let step = 0; step <=(maxYear-minYear); step++){
-        console.log("step")
+        
         var yearData = art.filter(d => d.dateAcquisition == (minYear+step))
 
         var count = 0
@@ -77,20 +78,28 @@ function draw() {
 
             var posX = step*curtainElementWidth
             var posY = count*(textHeight)
-            /*
+
+            //console.log(artwork.artistes)
+            // for each artist
             artwork.artistes.forEach(artiste => {
-                if (a.artisteMac == true){
-
-
-                    var nation = liste_origines.indexOf(n)
+                if (artiste.artisteMac == true){
+                    var set_n = artists.find(d => d.id == artiste.id).nationalites
+                    
+                    var origines = set_n.split(";")
+                    origines.forEach(o => {
+                        var origine = liste_origines.indexOf(o.trim())+1
+                        console.log("index", origine)
+                        text(origine, posX, posY)
+                    })
+                    
                 }
                 else{
-                    text(posX, posY, "0")
+                    text("0", posX, posY)
                 }
                     
-            })*/
+            })
 
-            text("0", posX, posY)
+            //text("0", posX, posY)
             count ++
         })
 
