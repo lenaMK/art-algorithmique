@@ -69,7 +69,6 @@ function draw() {
 
     fill(0, 0, 250, 1)
     
-cursor('zoom-in')
     translate(marginSides, marginTop)
 
     for (let step = 0; step <=(maxYear-minYear); step++){
