@@ -59,13 +59,17 @@ function setup(){
     noLoop()
 }
 
+function windowResized() {
+    resizeCanvas(windowWidth, windowHeight);
+}
+
 function draw() {
     console.log("hello")
     background(0, 0, 0, 0.8);
 
     fill(0, 0, 250, 1)
     
-
+cursor('zoom-in')
     translate(marginSides, marginTop)
 
     for (let step = 0; step <=(maxYear-minYear); step++){

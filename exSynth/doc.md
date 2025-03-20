@@ -6,4 +6,10 @@ Index des origines travaillé dans le notebook : https://observablehq.com/d/0b27
 version du 20 mars 2025
 
 
+unveiling? (behind the curtain)
+
+
+
 would be fun to make an animated version that goes through the nationalities, brings attention to those that are different, but can't be visible on screen as bead curtain so change it or ?
+
+what's the current order within a year?
