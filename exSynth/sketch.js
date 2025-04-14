@@ -9,6 +9,7 @@
 */
 var art_import, artists_import, origines_import
 var art, artists, origines, liste_origines
+var backgroundColor, fontColor, darkmode, button
 
 var minYear, maxYear
 var fontsize = 15
@@ -26,13 +27,37 @@ function preload(){
      origines_import = loadJSON("index_origines.json")
 }
 
+function colorButton() {
+
+    console.log("button pressed, darkmode: ", darkmode)
+
+    if (darkmode){ //change to light
+        fontColor = [203, 26, 60, 0.5]
+        backgroundColor = [12, 15, 94, 1]
+        //button.label('🌗')
+        darkmode = false
+    }
+    else{ //change to dark
+        fontColor = [0, 0, 250, 1]
+        backgroundColor =   [0, 0, 0, 0.8]
+        //button.label('🌓')
+        darkmode = true
+    }
+    
+    redraw()
+
+  }
 
 function setup(){
     colorMode(HSB, 360, 100, 100, 1);
+
+    textAlign(CENTER, CENTER)
     
-    textAlign(CENTER)
+    darkmode = true;
+    backgroundColor = [0, 0, 0, 0.8]
+    fontColor = [0, 0, 250, 1]
     
-    art = Object.values(art_import)
+    art = Object.values(art_import).filter(d => d.oeuvrePrincipale == null)
     artists = Object.values(artists_import)
     origines = Object.values(origines_import)
 
@@ -54,20 +79,27 @@ function setup(){
 
     textHeight = textAscent() + textDescent()
     maxHeight = art.filter(d => d.dateAcquisition == 1992).length * textHeight
+    
+    // Create a button 
+    button = createButton('🌓');
+    button.position(windowWidth*0.97, windowHeight*0.03);
+    button.mousePressed(colorButton);
 
     createCanvas(windowWidth, maxHeight+marginTop*2);
     noLoop()
 }
 
+
 function windowResized() {
-    resizeCanvas(windowWidth, windowHeight);
+    resizeCanvas(windowWidth, maxHeight);
 }
 
 function draw() {
-    console.log("hello")
-    background(0, 0, 0, 0.8);
+    console.log("drawing")
 
-    fill(0, 0, 250, 1)
+    background(backgroundColor);
+    fill(fontColor)
+   
     
     translate(marginSides, marginTop)
 
@@ -77,29 +109,35 @@ function draw() {
 
         var count = 0
         yearData.forEach(artwork => {
-            console.log("artwork")
+            //console.log("artwork")
 
             var posX = step*curtainElementWidth
             var posY = count*(textHeight)
 
             //console.log(artwork.artistes)
             // for each artist
+            var orString = ""
             artwork.artistes.forEach(artiste => {
                 if (artiste.artisteMac == true){
                     var set_n = artists.find(d => d.id == artiste.id).nationalites
                     
                     var origines = set_n.split(";")
+                    
                     origines.forEach(o => {
                         var origine = liste_origines.indexOf(o.trim())+1
-                        console.log("index", origine)
-                        text(origine, posX, posY)
+                        //console.log("index", origine)
+                        orString += origine
+                        orString += "+"
                     })
+                    
                     
                 }
                 else{
-                    text("0", posX, posY)
+                    orString += "0"
+                    orString += "+"
                 }
-                    
+
+                text(orString.substring(0, orString.length -1), posX, posY)
             })
 
             //text("0", posX, posY)
