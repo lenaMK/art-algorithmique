@@ -6,6 +6,9 @@ Index des origines travaillé dans le notebook : https://observablehq.com/d/0b27
 version du 20 mars 2025
 
 
+/!\ attention:  n'utilise pas (encore) les origines, seulement les nationalités
+
+
 unveiling? (behind the curtain)
 
 
