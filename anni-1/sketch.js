@@ -2,7 +2,7 @@
     title: 
     author: LenaMK
     date: 2025-04-29
-    description: remédiation de l'Étude d'AA réalisée à la machine écrire
+    description: remédiation de l'Étude (parentèses et tiret en bas) d'AA réalisée à la machine écrire
 */
 
 
