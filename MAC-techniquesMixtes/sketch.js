@@ -8,7 +8,7 @@
 
 */
 var art_import, artists_import, origines_import
-var art, artists, origines, liste_origines
+var art, artists, origines, liste_origines, artists_origines
 var backgroundColor, fontColor, darkmode, button
 
 var minYear, maxYear
@@ -24,6 +24,7 @@ var textHeight, maxHeight
 function preload(){
      art_import = loadJSON("oeuvres-mac.json")
      artists_import = loadJSON("artistes-mac.json")
+     artists_origines_import = loadJSON("index_origines_artistes.json")
      origines_import = loadJSON("index_origines.json")
 }
 
@@ -57,8 +58,11 @@ function setup(){
     backgroundColor = [0, 0, 0, 0.8]
     fontColor = [0, 0, 250, 1]
     
-    art = Object.values(art_import).filter(d => d.oeuvrePrincipale == null)
+    // sans séries, uniquement les techniques mixtes
+
+    art = Object.values(art_import).filter(d => d.oeuvrePrincipale == null && d.categorie == "Techniques mixtes")
     artists = Object.values(artists_import)
+    artists_origines = Object.values(artists_origines_import)
     origines = Object.values(origines_import)
 
     art.sort((a, b) => {
@@ -68,6 +72,7 @@ function setup(){
     minYear = Math.min(...art.map(item => item.dateAcquisition))
     maxYear = Math.max(...art.map(item => item.dateAcquisition))
 
+    //crée la numérotation associée aux origines
     liste_origines = origines.map(d => d.origine)
 
 
@@ -119,12 +124,11 @@ function draw() {
             var orString = ""
             artwork.artistes.forEach(artiste => {
                 if (artiste.artisteMac == true){
-                    var set_n = artists.find(d => d.id == artiste.id).nationalites
+                    var origines_renseignees = artists_origines.find(d => d.id == artiste.id).origines
                     
-                    var origines = set_n.split(";")
                     
-                    origines.forEach(o => {
-                        var origine = liste_origines.indexOf(o.trim())+1
+                    origines_renseignees.forEach(o => {
+                        var origine = liste_origines.indexOf(o)+1
                         //console.log("index", origine)
                         orString += origine
                         orString += "+"
