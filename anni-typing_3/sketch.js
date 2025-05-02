@@ -26,7 +26,7 @@ function setup() {
     textFont(font) 
 
     texteH = textAscent()-2
-    texteW = textWidth("_)")
+    texteW = textWidth("sS")
 
 
     noLoop();
@@ -39,6 +39,7 @@ function draw() {
      
 
     fill(0, 0, 100);
+    stroke(0, 0, 100);
     background(0, 0, 0)
     
    
@@ -49,30 +50,33 @@ function draw() {
 
     for (let y = margins; y < hauteur; y += texteH){
         //**line** or  y height
-        if (alternate){
-            texteW = textWidth(" :") 
-        }
-        else {
-            texteW = textWidth(" / ")
-            console.log("try to draw a line")
-            stroke(0, 0, 100);
-            line(margins, y-texteH+8, largeur, y-texteH+8 )
-        }
-        fill(0, 0, 100); 
+        
+        //console.log("draw a line")
+
+        stroke(0, 0, 100);
+        strokeWeight(2)
+        line(margins, y-texteH+8, largeur, y-texteH+8 )
 
         for ( let x = margins; x < largeur; x += texteW){ 
             // **column** or x position
-            
+            stroke(0, 0)
             if (alternate){
-                x = x+2
-                text(":", x, y)
+                text("sS", x, y)
             }
             else {
-                text("/", x, y)
+                text("Ss", x, y)
             
             }
         }
         alternate = !alternate
+
+        if (y + texteH > hauteur){
+            //dernière ligne
+            stroke(0, 0, 100);
+            strokeWeight(2)
+            line(margins, y+5, largeur, y+5 )
+        }
+
 
     }    
 
