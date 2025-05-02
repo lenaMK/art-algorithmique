@@ -26,8 +26,7 @@ function setup() {
     textFont(font) 
 
     texteH = textAscent()-2
-    texteW = textWidth("_)")
-
+    
 
     noLoop();
 
@@ -39,7 +38,7 @@ function draw() {
      
 
     fill(0, 0, 100);
-    stroke(0, 0, 100);
+
     background(0, 0, 0)
     
    
@@ -56,13 +55,14 @@ function draw() {
         else {
             texteW = textWidth(" / ")
             //console.log("draw a line")
-            
+            stroke(0, 0, 100);
+            strokeWeight(2)
             line(margins, y-texteH+8, largeur, y-texteH+8 )
         } 
 
         for ( let x = margins; x < largeur; x += texteW){ 
             // **column** or x position
-            
+            stroke(0, 0)
             if (alternate){
                 x = x+2
                 text(":", x, y)
