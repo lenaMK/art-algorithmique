@@ -1,7 +1,7 @@
 /*
-    title: 
+    title: // : Anni Albers : //
     author: LenaMK
-    date: 2025-04-29
+    date: 2025-05-02
     description: remédiation de l'Étude (parentèses et tiret en bas) d'AA réalisée à la machine écrire
 */
 
