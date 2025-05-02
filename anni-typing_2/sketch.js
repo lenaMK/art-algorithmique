@@ -39,6 +39,7 @@ function draw() {
      
 
     fill(0, 0, 100);
+    stroke(0, 0, 100);
     background(0, 0, 0)
     
    
@@ -54,11 +55,10 @@ function draw() {
         }
         else {
             texteW = textWidth(" / ")
-            console.log("try to draw a line")
-            stroke(0, 0, 100);
+            //console.log("draw a line")
+            
             line(margins, y-texteH+8, largeur, y-texteH+8 )
-        }
-        fill(0, 0, 100); 
+        } 
 
         for ( let x = margins; x < largeur; x += texteW){ 
             // **column** or x position
