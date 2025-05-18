@@ -12,13 +12,13 @@ var art_import, artists_import, origines_import, params
 var art, artists, origines, liste_origines, artists_origines
 var backgroundColor, fontColor, darkmode, button
 
-var circleSize = 10
+var circleSize = 25
 
 var minYear, maxYear
 var fontsize = 15
 var font = 'BagnardRegular'
 
-var marginSides = 150
+var marginSides = 50
 var marginTop = 100
 var curtainWidth, curtainStep, curtainElement
 var textHeight, maxHeight
@@ -33,35 +33,14 @@ function preload(){
      origines_import = loadJSON("../0_data/index_origines_tm.json")
 }
 
-function colorButton() {
 
-    console.log("button pressed, darkmode: ", darkmode)
-
-    if (darkmode){ //change to light
-        fontColor = [203, 26, 60, 0.5]
-        backgroundColor = [12, 15, 94, 1]
-        //button.label('🌗')
-        darkmode = false
-    }
-    else{ //change to dark
-        fontColor = [0, 0, 250, 1]
-        backgroundColor =   [0, 0, 0, 0.8]
-        //button.label('🌓')
-        darkmode = true
-    }
-    
-    redraw()
-
-  }
 
 function setup(){
     colorMode(HSB, 360, 100, 100, 1);
 
-    textAlign(CENTER, CENTER)
+    textAlign(LEFT, CENTER)
     
-    darkmode = true;
-    backgroundColor = [0, 0, 0, 0.8]
-    fontColor = [0, 0, 250, 1]
+
     
     // sans séries, uniquement les techniques mixtes
 
@@ -87,12 +66,8 @@ function setup(){
     curtainElementWidth = curtainWidth/(maxYear-minYear)   
 
     textHeight = textAscent() + textDescent()
-    maxHeight = art.filter(d => d.dateAcquisition == 1992).length * textHeight
-    
-    // Create a button 
-    button = createButton('🌓');
-    button.position(windowWidth*0.97, windowHeight*0.03);
-    button.mousePressed(colorButton);
+    maxHeight = art.filter(d => d.dateAcquisition == 1992).length * 50 + 200
+
 
     params = getURLParams();
     specYear = params.year
@@ -109,56 +84,110 @@ function windowResized() {
     resizeCanvas(windowWidth, maxHeight);
 }
 
+
+function drawLegendeVerticale(width, data) {
+     
+
+    translate(windowWidth/3*2, 100)
+    console.log(data)
+
+
+    for (let step = 0; step < data.length; step++){
+
+        var current = data[step]
+
+        var posX = 0
+        var posY = step * 80
+
+        fill(current.couleur)
+        circle(posX, posY, 25)
+
+        fill([0, 0, 0, 0.8])
+            
+        textSize(24); 
+        text( current.origine, posX + 30, posY)
+
+    }
+
+
+}
+
+
 function drawYear(year){
 
+    var currentOrigines = new Set()
+
     translate(marginSides, marginTop)
-    textSize(24)
-    text(`hello ${year}`, 50, 50 )
+    textSize(48)
 
-        var yearData = art.filter(d => d.dateAcquisition == year)
+    var yearData = art.filter(d => d.dateAcquisition == year)
 
-        var count = 0
-        yearData.forEach(artwork => {
+    text(`Année ${year} (${yearData.length})`, 150, 50 )
 
-            var posX = 20
-            var posY = count*(textHeight)
+
+
+
+    var count = 0
+
+    if (yearData.length == 0){
+        textSize(30)
+        text(`Pas d'acquisition de techniques mixtes`, 150, 120 )
+    }
+
+    yearData.forEach(artwork => {
+
+        var posX = windowWidth/4
+        var posY = 150+ count*50
+        textSize(21)
+        fill(0, 0, 0, 0.8)
+
+        text(yearData.indexOf(artwork), posX - 50, posY)
+
+        var countOs = 0
+        artwork.artistes.forEach(artiste => {
             
-            var countOs = 0
-            artwork.artistes.forEach(artiste => {
-                
-                var origines_renseignees = artists_origines.find(d => d.id == artiste.id)
-                
-                if (origines_renseignees){
-                    origines_renseignees.origines.forEach(o => {
+            var origines_renseignees = artists_origines.find(d => d.id == artiste.id)
+            
+            
 
-                        var current = origines.find(d => d.origine == o)
-                        
-                        if (current)
-                            fill(current.couleur)
-                        else
-                            fill([126, 22, 100])
-                        circle(posX+countOs*circleSize, posY, circleSize)
+            if (origines_renseignees){
+                origines_renseignees.origines.forEach(o => {
 
-                        countOs ++;
+                    
+                    var current = origines.find(d => d.origine == o)
+                    currentOrigines.add(current)
 
-                    })
-                }
-                else{
-                    fill([226, 22, 100])
-                    circle(posX+countOs*circleSize, posY, circleSize)
+                    if (current)
+                        fill(current.couleur)
+                    else
+                        fill([126, 22, 100])
+
+                    circle(posX+countOs*circleSize+15, posY, circleSize)
+
                     countOs ++;
-                }             
+
+                })
+            }
+            else{
+                fill([226, 22, 100])
+                circle(posX+countOs*circleSize, posY, circleSize)
+                countOs ++;
+            }             
 
 
-            })
-            count ++
         })
+        count ++
+    })
 
+    console.log(currentOrigines)
+    drawLegendeVerticale(100, Array.from(currentOrigines))
+    
 }
 
 
 function drawAll(){
 
+    circleSize=12
     
     
     translate(marginSides, marginTop)

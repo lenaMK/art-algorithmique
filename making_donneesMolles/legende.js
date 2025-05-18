@@ -101,6 +101,8 @@ function drawLegende() {
 
 }
 
-function draw {
+function draw (){
     drawLegende()
+
+
 }
