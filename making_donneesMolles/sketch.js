@@ -74,7 +74,7 @@ function setup(){
     console.log(specYear)
 
     createCanvas(windowWidth, maxHeight+marginTop*2);
-    noLoop()
+
 
     
 }
@@ -113,7 +113,15 @@ function drawLegendeVerticale(width, data) {
 }
 
 
+
 function drawYear(year){
+    stroke('black')
+    strokeWeight(1)
+
+    line(250, mouseY, windowWidth/2, mouseY)
+    line(250, mouseY+35, windowWidth/2, mouseY+35)
+
+
 
     var currentOrigines = new Set()
 
@@ -124,8 +132,7 @@ function drawYear(year){
 
     text(`Année ${year} (${yearData.length})`, 150, 50 )
 
-
-
+  
 
     var count = 0
 
@@ -139,10 +146,13 @@ function drawYear(year){
         var posX = windowWidth/4
         var posY = 150+ count*50
         textSize(21)
+        
         fill(0, 0, 0, 0.8)
+           
+        noStroke()
 
-        text(yearData.indexOf(artwork), posX - 50, posY)
-
+        text(yearData.indexOf(artwork)+1, posX - 50, posY+2)
+     
         var countOs = 0
         artwork.artistes.forEach(artiste => {
             
@@ -193,7 +203,7 @@ function drawAll(){
     translate(marginSides, marginTop)
 
     for (let step = 0; step <=(maxYear-minYear); step++){
-        
+         noStroke()
         var yearData = art.filter(d => d.dateAcquisition == (minYear+step))
 
         var count = 0
@@ -242,7 +252,7 @@ function drawAll(){
 
 function draw() {
     console.log("drawing")
-    noStroke()
+   
     background("lightgrey");
 
     if (specYear)
