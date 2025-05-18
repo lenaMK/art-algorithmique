@@ -118,8 +118,8 @@ function drawYear(year){
     stroke('black')
     strokeWeight(1)
 
-    line(250, mouseY, windowWidth/2, mouseY)
-    line(250, mouseY+35, windowWidth/2, mouseY+35)
+    line(250, mouseY-22, windowWidth/2, mouseY-22)
+    line(250, mouseY+22, windowWidth/2, mouseY+22)
 
 
 
@@ -253,7 +253,7 @@ function drawAll(){
 function draw() {
     console.log("drawing")
    
-    background("lightgrey");
+    background([0, 0, 96]);
 
     if (specYear)
         drawYear(specYear)

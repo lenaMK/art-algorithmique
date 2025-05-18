@@ -7,42 +7,43 @@
     {
         "origine": "Québécoise",
         "nb_oeuvres": 402,
-        "couleur": [166, 22, 100]
+        "couleur": [190, 22, 96]
     },
     {
         "origine": "Américaine",
         "nb_oeuvres": 32,
-        "couleur": [300, 80, 90]
+        "couleur": [280, 30, 87]
     },
     {
         "origine": "Française",
         "nb_oeuvres": 25,
-        "couleur": [53, 47, 100]
+        "couleur": [58, 27, 100]
     },
     {
         "origine": "Allemande",
         "nb_oeuvres": 20,
-        "couleur": [277, 45, 100]
+        "couleur": [303, 17, 100]
     },
     {
         "origine": "Italienne",
         "nb_oeuvres": 7,
-        "couleur": [0, 17, 100]
+        "couleur": [94, 64, 89]
+        
     },
     {
         "origine": "Vénézuélienne",
         "nb_oeuvres": 5,
-        "couleur": [220, 80, 90]
+        "couleur": [150, 31, 95]
     },
     {
         "origine": "Britannique",
         "nb_oeuvres": 4,
-        "couleur": [220, 80, 90]
+        "couleur": [0, 2, 71]
     },
     {
         "origine": "Tchèque",
         "nb_oeuvres": 4,
-        "couleur": [220, 80, 90]
+        "couleur": [199, 100, 73]
     },
     {
         "origine": "Anishinaabe",
@@ -52,7 +53,7 @@
     {
         "origine": "Coréenne",
         "nb_oeuvres": 4,
-        "couleur": [220, 80, 90]
+        "couleur": [326, 37, 80]
     },
     {
         "origine": "Autrichienne",
@@ -62,22 +63,22 @@
     {
         "origine": "Argentine",
         "nb_oeuvres": 3,
-        "couleur": [220, 80, 90]
+        "couleur": [199, 50, 95]
     },
     {
         "origine": "Belge",
         "nb_oeuvres": 2,
-        "couleur": [220, 80, 90]
+        "couleur": [52, 91, 97]
     },
     {
         "origine": "Polonaise",
         "nb_oeuvres": 2,
-        "couleur": [220, 80, 90]
+        "couleur": [261, 90, 97]
     },
     {
         "origine": "Néerlandaise",
         "nb_oeuvres": 2,
-        "couleur": [220, 80, 90]
+        "couleur": [36, 90, 99]
     },
     {
         "origine": "Grecque",
@@ -97,7 +98,7 @@
     {
         "origine": "Russe",
         "nb_oeuvres": 1,
-        "couleur": [220, 80, 90]
+        "couleur": [30, 88, 44]
     },
     {
         "origine": "Japonaise",
@@ -107,7 +108,7 @@
     {
         "origine": "Yougoslave",
         "nb_oeuvres": 1,
-        "couleur": [220, 80, 90]
+        "couleur": [61, 17, 90]
     },
     {
         "origine": "Kanien’kehá:ka",
@@ -127,7 +128,7 @@
     {
         "origine": "Ukrainienne",
         "nb_oeuvres": 1,
-        "couleur": [220, 80, 90]
+        "couleur": [59, 100, 100]
     },
     {
         "origine": "Cubaine",
@@ -147,6 +148,6 @@
     {
         "origine": "Péruvienne",
         "nb_oeuvres": 1,
-        "couleur": [220, 80, 90]
+        "couleur": [326, 77, 89]
     }
 ]
