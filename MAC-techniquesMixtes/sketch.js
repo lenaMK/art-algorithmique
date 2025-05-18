@@ -23,10 +23,10 @@ var textHeight, maxHeight
 
 
 function preload(){
-     art_import = loadJSON("oeuvres-mac.json")
-     artists_import = loadJSON("artistes-mac.json")
-     artists_origines_import = loadJSON("index_origines_artistes.json")
-     origines_import = loadJSON("index_origines.json")
+     art_import = loadJSON("../0_data/oeuvres-mac.json")
+     artists_import = loadJSON("../0_data/artistes-mac.json")
+     artists_origines_import = loadJSON("../0_data/index_origines_artistes.json")
+     origines_import = loadJSON("../0_data/index_origines.json")
 }
 
 function colorButton() {
@@ -124,23 +124,27 @@ function draw() {
             // for each artist
             var orString = ""
             artwork.artistes.forEach(artiste => {
-                if (artiste.artisteMac == true){
-                    var origines_renseignees = artists_origines.find(d => d.id == artiste.id).origines
-                    
-                    
-                    origines_renseignees.forEach(o => {
+                console.log(artiste)
+
+                 var origines_renseignees = artists_origines.find(d => d.id == artiste.id)
+
+
+                 if (origines_renseignees){
+                    origines_renseignees.origines.forEach(o => {
+                        
                         var origine = liste_origines.indexOf(o)+1
                         //console.log("index", origine)
                         orString += origine
                         orString += "+"
+
                     })
-                    
-                    
                 }
                 else{
                     orString += "0"
                     orString += "+"
-                }
+                }     
+
+                
 
                 text(orString.substring(0, orString.length -1), posX, posY)
             })
