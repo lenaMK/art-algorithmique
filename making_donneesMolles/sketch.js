@@ -8,7 +8,7 @@
     notes: 
 
 */
-var art_import, artists_import, origines_import
+var art_import, artists_import, origines_import, params
 var art, artists, origines, liste_origines, artists_origines
 var backgroundColor, fontColor, darkmode, button
 
@@ -23,12 +23,14 @@ var marginTop = 100
 var curtainWidth, curtainStep, curtainElement
 var textHeight, maxHeight
 
+var specYear, index_tm
+
 
 function preload(){
      art_import = loadJSON("../0_data/oeuvres-mac.json")
      artists_import = loadJSON("../0_data/artistes-mac.json")
      artists_origines_import = loadJSON("../0_data/index_origines_artistes.json")
-     origines_import = loadJSON("../0_data/index_origines.json")
+     origines_import = loadJSON("../0_data/index_origines_tm.json")
 }
 
 function colorButton() {
@@ -68,15 +70,14 @@ function setup(){
     artists_origines = Object.values(artists_origines_import)
     origines = Object.values(origines_import)
 
+    console.log("origines", origines)
     art.sort((a, b) => {
         return b.dateAcquisition - a.dateAcquisition;
     })
 
     minYear = Math.min(...art.map(item => item.dateAcquisition))
     maxYear = Math.max(...art.map(item => item.dateAcquisition))
-
-    //crée la numérotation associée aux origines
-    liste_origines = origines.map(d => d.origine)
+ 
 
 
     textSize(fontsize); 
@@ -93,8 +94,14 @@ function setup(){
     button.position(windowWidth*0.97, windowHeight*0.03);
     button.mousePressed(colorButton);
 
+    params = getURLParams();
+    specYear = params.year
+    console.log(specYear)
+
     createCanvas(windowWidth, maxHeight+marginTop*2);
     noLoop()
+
+    
 }
 
 
@@ -102,42 +109,57 @@ function windowResized() {
     resizeCanvas(windowWidth, maxHeight);
 }
 
-function originToColor(origin){
+function drawYear(year){
 
-    var color
-    switch (origin){
-        case "Canadienne": 
-            color = [0, 1, 100]
-            break;
-        case "Québécoise":
-            color = [166, 22, 100]
-            break;
-        case "Américaine":
-            color = [300, 80, 90]
-            break;
-        case "Française":
-            color = [53, 47, 100]
-            break;
-        case "Allemande":
-            color = [277, 45, 100]
-            break;
-        case "Italienne":
-            color = [0, 17, 100]
-            break;
-        default: 
-            color =[300, 80, 90]
-            break;
-    }
+    translate(marginSides, marginTop)
+    textSize(24)
+    text(`hello ${year}`, 50, 50 )
 
-    return color
+        var yearData = art.filter(d => d.dateAcquisition == year)
+
+        var count = 0
+        yearData.forEach(artwork => {
+
+            var posX = 20
+            var posY = count*(textHeight)
+            
+            var countOs = 0
+            artwork.artistes.forEach(artiste => {
+                
+                var origines_renseignees = artists_origines.find(d => d.id == artiste.id)
+                
+                if (origines_renseignees){
+                    origines_renseignees.origines.forEach(o => {
+
+                        var current = origines.find(d => d.origine == o)
+                        
+                        if (current)
+                            fill(current.couleur)
+                        else
+                            fill([126, 22, 100])
+                        circle(posX+countOs*circleSize, posY, circleSize)
+
+                        countOs ++;
+
+                    })
+                }
+                else{
+                    fill([226, 22, 100])
+                    circle(posX+countOs*circleSize, posY, circleSize)
+                    countOs ++;
+                }             
+
+
+            })
+            count ++
+        })
+
 }
 
-function draw() {
-    console.log("drawing")
-    noStroke()
-    background("lightgrey");
+
+function drawAll(){
+
     
-   
     
     translate(marginSides, marginTop)
 
@@ -162,8 +184,13 @@ function draw() {
                 
                 if (origines_renseignees){
                     origines_renseignees.origines.forEach(o => {
+
+                        var current = origines.find(d => d.origine == o)
                         
-                        fill(originToColor(o))
+                        if (current)
+                            fill(current.couleur)
+                        else
+                            fill([126, 22, 100])
                         circle(posX+countOs*circleSize, posY, circleSize)
 
                         countOs ++;
@@ -171,7 +198,7 @@ function draw() {
                     })
                 }
                 else{
-                    fill(originToColor("non reseignée"))
+                    fill([226, 22, 100])
                     circle(posX+countOs*circleSize, posY, circleSize)
                     countOs ++;
                 }             
@@ -182,5 +209,16 @@ function draw() {
         })
 
     }
+}
+
+function draw() {
+    console.log("drawing")
+    noStroke()
+    background("lightgrey");
+
+    if (specYear)
+        drawYear(specYear)
+    else
+        drawAll()
 
 }

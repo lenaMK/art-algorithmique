@@ -1,0 +1,152 @@
+[
+    {
+        "origine": "Canadienne",
+        "nb_oeuvres": 442,
+        "couleur": [0, 1, 100]
+    },
+    {
+        "origine": "Québécoise",
+        "nb_oeuvres": 402,
+        "couleur": [166, 22, 100]
+    },
+    {
+        "origine": "Américaine",
+        "nb_oeuvres": 32,
+        "couleur": [300, 80, 90]
+    },
+    {
+        "origine": "Française",
+        "nb_oeuvres": 25,
+        "couleur": [53, 47, 100]
+    },
+    {
+        "origine": "Allemande",
+        "nb_oeuvres": 20,
+        "couleur": [277, 45, 100]
+    },
+    {
+        "origine": "Italienne",
+        "nb_oeuvres": 7,
+        "couleur": [0, 17, 100]
+    },
+    {
+        "origine": "Vénézuélienne",
+        "nb_oeuvres": 5,
+        "couleur": [220, 80, 90]
+    },
+    {
+        "origine": "Britannique",
+        "nb_oeuvres": 4,
+        "couleur": [220, 80, 90]
+    },
+    {
+        "origine": "Tchèque",
+        "nb_oeuvres": 4,
+        "couleur": [220, 80, 90]
+    },
+    {
+        "origine": "Anishinaabe",
+        "nb_oeuvres": 4,
+        "couleur": [220, 80, 90]
+    },
+    {
+        "origine": "Coréenne",
+        "nb_oeuvres": 4,
+        "couleur": [220, 80, 90]
+    },
+    {
+        "origine": "Autrichienne",
+        "nb_oeuvres": 3,
+        "couleur": [220, 80, 90]
+    },
+    {
+        "origine": "Argentine",
+        "nb_oeuvres": 3,
+        "couleur": [220, 80, 90]
+    },
+    {
+        "origine": "Belge",
+        "nb_oeuvres": 2,
+        "couleur": [220, 80, 90]
+    },
+    {
+        "origine": "Polonaise",
+        "nb_oeuvres": 2,
+        "couleur": [220, 80, 90]
+    },
+    {
+        "origine": "Néerlandaise",
+        "nb_oeuvres": 2,
+        "couleur": [220, 80, 90]
+    },
+    {
+        "origine": "Grecque",
+        "nb_oeuvres": 2,
+        "couleur": [220, 80, 90]
+    },
+    {
+        "origine": "Roumaine",
+        "nb_oeuvres": 2,
+        "couleur": [220, 80, 90]
+    },
+    {
+        "origine": "Suisse",
+        "nb_oeuvres": 1,
+        "couleur": [220, 80, 90]
+    },
+    {
+        "origine": "Russe",
+        "nb_oeuvres": 1,
+        "couleur": [220, 80, 90]
+    },
+    {
+        "origine": "Japonaise",
+        "nb_oeuvres": 1,
+        "couleur": [220, 80, 90]
+    },
+    {
+        "origine": "Yougoslave",
+        "nb_oeuvres": 1,
+        "couleur": [220, 80, 90]
+    },
+    {
+        "origine": "Kanien’kehá:ka",
+        "nb_oeuvres": 1,
+        "couleur": [220, 80, 90]
+    },
+    {
+        "origine": "Algonquin; Anishinaabe",
+        "nb_oeuvres": 1,
+        "couleur": [220, 80, 90]
+    },
+    {
+        "origine": "Albanaise",
+        "nb_oeuvres": 1,
+        "couleur": [220, 80, 90]
+    },
+    {
+        "origine": "Ukrainienne",
+        "nb_oeuvres": 1,
+        "couleur": [220, 80, 90]
+    },
+    {
+        "origine": "Cubaine",
+        "nb_oeuvres": 1,
+        "couleur": [220, 80, 90]
+    },
+    {
+        "origine": "Métis; Saulteaux",
+        "nb_oeuvres": 1,
+        "couleur": [220, 80, 90]
+    },
+    {
+        "origine": "Norvégienne",
+        "nb_oeuvres": 1,
+        "couleur": [220, 80, 90]
+    },
+    {
+        "origine": "Péruvienne",
+        "nb_oeuvres": 1,
+        "couleur": [220, 80, 90]
+    }
+]
