@@ -33,7 +33,7 @@
     {
         "origine": "Vénézuélienne",
         "nb_oeuvres": 5,
-        "couleur": [150, 31, 95]
+        "couleur": [141, 56, 88]
     },
     {
         "origine": "Britannique",
@@ -48,7 +48,7 @@
     {
         "origine": "Anishinaabe",
         "nb_oeuvres": 4,
-        "couleur": [220, 80, 90]
+        "couleur": [321, 90, 94]
     },
     {
         "origine": "Coréenne",
@@ -58,7 +58,7 @@
     {
         "origine": "Autrichienne",
         "nb_oeuvres": 3,
-        "couleur": [220, 80, 90]
+        "couleur": [3, 15, 86]
     },
     {
         "origine": "Argentine",
@@ -83,17 +83,17 @@
     {
         "origine": "Grecque",
         "nb_oeuvres": 2,
-        "couleur": [220, 80, 90]
+        "couleur": [35, 15, 86]
     },
     {
         "origine": "Roumaine",
         "nb_oeuvres": 2,
-        "couleur": [220, 80, 90]
+        "couleur": [64, 27, 100]
     },
     {
         "origine": "Suisse",
         "nb_oeuvres": 1,
-        "couleur": [220, 80, 90]
+        "couleur": [124, 100, 38]
     },
     {
         "origine": "Russe",
@@ -103,7 +103,7 @@
     {
         "origine": "Japonaise",
         "nb_oeuvres": 1,
-        "couleur": [220, 80, 90]
+        "couleur": [31, 27, 94]
     },
     {
         "origine": "Yougoslave",
@@ -113,17 +113,17 @@
     {
         "origine": "Kanien’kehá:ka",
         "nb_oeuvres": 1,
-        "couleur": [220, 80, 90]
+        "couleur": [42, 99, 100]
     },
     {
         "origine": "Algonquin; Anishinaabe",
         "nb_oeuvres": 1,
-        "couleur": [220, 80, 90]
+        "couleur": [58, 97, 100]
     },
     {
         "origine": "Albanaise",
         "nb_oeuvres": 1,
-        "couleur": [220, 80, 90]
+        "couleur": [285, 35, 93]
     },
     {
         "origine": "Ukrainienne",
@@ -133,7 +133,7 @@
     {
         "origine": "Cubaine",
         "nb_oeuvres": 1,
-        "couleur": [220, 80, 90]
+        "couleur": [95, 83, 91]
     },
     {
         "origine": "Métis; Saulteaux",
@@ -143,11 +143,11 @@
     {
         "origine": "Norvégienne",
         "nb_oeuvres": 1,
-        "couleur": [220, 80, 90]
+        "couleur": [72, 61, 100]
     },
     {
         "origine": "Péruvienne",
         "nb_oeuvres": 1,
-        "couleur": [326, 77, 89]
+        "couleur": [312, 23, 78]
     }
 ]
