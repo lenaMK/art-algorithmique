@@ -118,6 +118,8 @@ function drawYear(year){
     stroke('black')
     strokeWeight(1)
 
+    console.log(year)
+
     line(250, mouseY-22, windowWidth/2, mouseY-22)
     line(250, mouseY+22, windowWidth/2, mouseY+22)
 
@@ -129,6 +131,7 @@ function drawYear(year){
     textSize(48)
 
     var yearData = art.filter(d => d.dateAcquisition == year)
+    console.log(yearData)
 
     text(`Année ${year} (${yearData.length})`, 150, 50 )
 
