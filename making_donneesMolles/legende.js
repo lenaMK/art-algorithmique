@@ -42,6 +42,10 @@ function setup(){
 
    
     origines = Object.values(origines_import)
+    
+    /*origines.sort((a, b) => {
+        return b.origine - a.origine;
+    })*/
 
     maxHeight = origines.length * 50 + marginTop + 100
     

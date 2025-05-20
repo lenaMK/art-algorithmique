@@ -74,8 +74,7 @@ function setup(){
     console.log(specYear)
 
     createCanvas(windowWidth, maxHeight+marginTop*2);
-
-
+   
     
 }
 
@@ -158,7 +157,16 @@ function drawYear(year){
      
         var countOs = 0
         artwork.artistes.forEach(artiste => {
-            
+
+            if (artwork.artistes.length > 1){
+                console.log(artwork.artistes.length)
+                if (artwork.artistes.indexOf(artiste) == 1){
+                    count++
+                    posY = 150+ count*50
+                }
+                    
+
+            }
             var origines_renseignees = artists_origines.find(d => d.id == artiste.id)
             
             
@@ -173,7 +181,7 @@ function drawYear(year){
                     if (current)
                         fill(current.couleur)
                     else
-                        fill([126, 22, 100])
+                        fill([0, 70, 100])
 
                     circle(posX+countOs*circleSize+15, posY, circleSize)
 
@@ -182,16 +190,18 @@ function drawYear(year){
                 })
             }
             else{
-                fill([226, 22, 100])
+                fill([0, 100, 100])
                 circle(posX+countOs*circleSize, posY, circleSize)
                 countOs ++;
-            }             
+            }    
+            fill(0, 0, 0, 0.8)
+            text(`${artwork.titre}, ${artwork.libelleNomsArtistes}, ${artwork.dateProduction}`,posX+countOs*circleSize+50, posY)
 
 
         })
         count ++
     })
-
+    
     console.log(currentOrigines)
     drawLegendeVerticale(100, Array.from(currentOrigines))
     
@@ -232,7 +242,7 @@ function drawAll(){
                         if (current)
                             fill(current.couleur)
                         else
-                            fill([126, 22, 100])
+                            fill([0, 100, 100])
                         circle(posX+countOs*circleSize, posY, circleSize)
 
                         countOs ++;
@@ -240,7 +250,7 @@ function drawAll(){
                     })
                 }
                 else{
-                    fill([226, 22, 100])
+                    fill([0, 100, 100])
                     circle(posX+countOs*circleSize, posY, circleSize)
                     countOs ++;
                 }             
