@@ -1,0 +1,28 @@
+#audioControls {
+    text-align: center;
+}
+
+
+nav {
+    padding-top: 10%;
+    padding-left: 5%;
+    position: fixed;
+    top: 0;
+    background-color: white;
+    width: vw;
+}
+
+nav > ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+nav > ul > li {
+    padding-bottom: 5%;
+}
+
+nav > ul > li > a {
+    font-size: larger;
+    color: #333333;
+}
