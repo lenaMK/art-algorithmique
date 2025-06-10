@@ -23,6 +23,7 @@ var marginTop = 100
 var curtainWidth, curtainStep, curtainElement
 var textHeight, maxHeight
 
+var loopDraw
 var specYear, index_tm
 
 
@@ -75,6 +76,7 @@ function setup(){
 
     createCanvas(windowWidth, maxHeight+marginTop*2);
    
+    loopDraw = true
     
 }
 
@@ -83,6 +85,16 @@ function windowResized() {
     resizeCanvas(windowWidth, maxHeight);
 }
 
+function mouseClicked() {
+    if (loopDraw){
+        noLoop()
+        loopDraw = false
+    }
+    else {
+        loop()
+        loopDraw = true
+    }
+}
 
 function drawLegendeVerticale(width, data) {
      
